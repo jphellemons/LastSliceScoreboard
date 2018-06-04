@@ -5,10 +5,11 @@
              x:Class="LastSliceScoreboard.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
+        <Image x:Name="imgTitle" HorizontalOptions="Center" />
+        <ListView x:Name="lv" >
+        </ListView>
+        <Button Text="Reload scoreboard" 
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+           VerticalOptions="CenterAndExpand" x:Name="btnReload" Clicked="btnReload_Clicked" />
     </StackLayout>
-
 </ContentPage>

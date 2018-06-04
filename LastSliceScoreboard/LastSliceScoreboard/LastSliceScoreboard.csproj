@@ -1,10 +1,29 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
+<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>Full</DebugType>
+</PropertyGroup>
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Assets\GameOverScreen.png" />
+    <None Remove="Assets\leaderboard.png" />
+    <None Remove="Assets\pizza1.png" />
+    <None Remove="Assets\pizza2.png" />
+    <None Remove="Assets\pizza3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\GameOverScreen.png" />
+    <EmbeddedResource Include="Assets\leaderboard.png" />
+    <EmbeddedResource Include="Assets\pizza1.png" />
+    <EmbeddedResource Include="Assets\pizza2.png" />
+    <EmbeddedResource Include="Assets\pizza3.png" />
+  </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Identity.Client" Version="1.1.4-preview0002" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="System.Net.Http" Version="4.3.3" />
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
   </ItemGroup>
 </Project>
