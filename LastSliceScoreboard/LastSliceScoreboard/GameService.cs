@@ -69,7 +69,7 @@ namespace LastSliceScoreboard
 
         public async Task<List<Score>> GetLeaderboardWithCurrentUserAsync()
         {
-            HttpResponseMessage httpResponse = await client.GetUrlAsync(SCORE_BOARD_URL);
+            HttpResponseMessage httpResponse = await client.GetUrlAsync(SCORE_BOARD_URL + "?maxItemCount=1000");
 
             var content = httpResponse.Content;
 
