@@ -8,5 +8,10 @@ namespace LastSliceScoreboard
     {
         public string Initials { get; set; }
         public int ChallengesCompleted { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Initials} completed {ChallengesCompleted} challenges";
+        }
     }
 }

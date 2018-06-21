@@ -6,7 +6,12 @@
 
     <StackLayout>
         <Image x:Name="imgTitle" HorizontalOptions="Center" />
-        <ListView x:Name="lv" >
+        <ListView x:Name="lv" ItemsSource="{Binding Scores}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{x:Binding Initials}" Detail="{Binding ChallengesCompleted}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
         <Button Text="Reload scoreboard" 
            HorizontalOptions="Center"

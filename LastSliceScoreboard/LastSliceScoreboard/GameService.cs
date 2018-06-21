@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -11,8 +10,6 @@ namespace LastSliceScoreboard
         private const string CHALLENGE_ROOT_URL = "https://thelastslice.azurewebsites.net/";
 
         private const string SCORE_BOARD_URL = CHALLENGE_ROOT_URL + "api/ScoreBoard";
-
-        private const string SCORE_BOARD_TOP_TEN_URL = CHALLENGE_ROOT_URL + "api/ScoreBoard/top10";
 
         private HttpClient client;
 
@@ -46,16 +43,12 @@ namespace LastSliceScoreboard
 
         public bool HasUserLoggedIn()
         {
-            bool cachedUserExists = client.CachedUserExists();
-
-            return cachedUserExists;
+            return client.CachedUserExists();
         }
 
-        public async Task<string> Login()
+        public Task<string> LoginAsync()
         {
-            string token = await client.GetAccessTokenAsync();
-
-            return token;
+            return client.GetAccessTokenAsync();
         }
 
         public void Logout()

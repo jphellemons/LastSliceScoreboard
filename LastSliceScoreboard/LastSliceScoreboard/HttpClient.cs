@@ -25,7 +25,7 @@ namespace LastSliceScoreboard
         private IEnumerable<string> _scopes = null;
 
         //constant used to create the _authority
-        const string BASE_AUTHORITY = "https://login.microsoftonline.com/tfp/{tenant}/{policy}/oauth2/v2.0/authorize";
+        private const string BASE_AUTHORITY = "https://login.microsoftonline.com/tfp/{tenant}/{policy}/oauth2/v2.0/authorize";
 
         //used for connecting to AAD.  Populated in the constructor
         private string _authority = string.Empty;
@@ -141,7 +141,6 @@ namespace LastSliceScoreboard
             HttpResponseMessage response = await httpClient.GetAsync(new Uri(url));
             return response;
         }
-
 
         public async Task<HttpResponseMessage> PostUrlAsync(string url, string body)
         {
