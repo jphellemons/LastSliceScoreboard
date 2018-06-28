@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -19,8 +20,8 @@ namespace LastSliceScoreboard
             InitializeComponent();
 
             BindingContext = this;
-            this.BackgroundImage = "GameOverScreen.png";
-            imgTitle.Source = ImageSource.FromResource("leaderboard.png");
+            this.BackgroundImage = "LastSliceScoreboard.GameOverScreen.png";
+            imgTitle.Source = ImageSource.FromResource("leaderboard.png", typeof(MainPage).GetTypeInfo().Assembly);
 
             _service = new GameService();
             DisplayLeaderboardAsync();
@@ -38,6 +39,10 @@ namespace LastSliceScoreboard
                 var list = await _service.GetLeaderboardWithCurrentUserAsync();
                 foreach (var s in list)
                     Scores.Add(s);
+
+                var nr2 = list.Where(l => l.ChallengesCompleted > 1).ToList();
+
+                lblTot.Text = $"{Scores.Count} have finished challenge 1. {nr2.Count} have finished challenge 2.";
             }
             catch (Exception ex)
             {

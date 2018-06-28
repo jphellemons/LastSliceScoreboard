@@ -5,7 +5,8 @@
              x:Class="LastSliceScoreboard.MainPage">
 
     <StackLayout>
-        <Image x:Name="imgTitle" HorizontalOptions="Center" />
+        <Image x:Name="imgTitle" HorizontalOptions="Center" HeightRequest="10" Aspect="AspectFit" />
+        <Label x:Name="lblTot" />
         <ListView x:Name="lv" ItemsSource="{Binding Scores}">
             <ListView.ItemTemplate>
                 <DataTemplate>
